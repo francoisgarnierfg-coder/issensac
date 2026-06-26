@@ -114,10 +114,10 @@ export const PROGRAMME: JourData[] = [
     humeur: 'detente',
     matin: {
       activiteId: 'peche-ecrevisses',
-      titre: 'Pêche aux écrevisses avec Louis',
-      sousTitre: 'Rivière Buèges — épuisettes, seaux, surprises garanties pour les enfants',
+      titre: 'Pêche aux écrevisses avec Loulou',
+      sousTitre: "Rivière Hérault — épuisettes, seaux, surprises garanties pour les enfants",
       estOptionnel: false,
-      note: "Organisé par Louis. Confirmer l'heure avec lui la veille. Chaussures d'eau obligatoires.",
+      note: "Organisé par Loulou. Confirmer le point de RDV avec lui la veille. Chaussures d'eau obligatoires.",
     },
     apresmidi: {
       activiteId: 'domaine',
