@@ -97,7 +97,11 @@ export default function EcranCarte() {
 
   if (!MapView) {
     return (
-      <View style={[styles.fallback, { paddingTop: insets.top }]}>
+      <ScrollView
+        style={{ flex: 1, backgroundColor: Couleurs.fond }}
+        contentContainerStyle={[styles.fallback, { paddingTop: insets.top }]}
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={styles.fallbackEmoji}>🗺️</Text>
         <Text style={[Typo.titre, { color: Couleurs.encre, textAlign: 'center' }]}>
           Carte des activités
@@ -128,7 +132,7 @@ export default function EcranCarte() {
             );
           })}
         </View>
-      </View>
+      </ScrollView>
     );
   }
 
