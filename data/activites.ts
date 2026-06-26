@@ -453,7 +453,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'domaine',
     nom: 'Les Hauts d\'Issensac',
     emoji: '🏡',
-    photo: 'https://picsum.photos/seed/provence-pool-valley/800/400',
+    photo: require('../assets/photos/domaine.jpg'),
     categorie: 'domaine',
     accroche: 'La piscine qui surplombe la vallée. Le reste peut attendre.',
     description:
