@@ -457,7 +457,7 @@ export const ACTIVITES: ActiviteData[] = [
     categorie: 'domaine',
     accroche: '« J\'organiserai une activité pêche aux écrevisses 🦞 avec vos gosssesssss ! »',
     description:
-      "Loulou, l'un des parents du groupe, organise une séance de pêche aux écrevisses dans l'Hérault pour les enfants. Épuisettes, seaux, exclamations et surprises garantis — une expérience vraie que les enfants raconteront longtemps.",
+      "Loulou organise une séance de pêche aux écrevisses dans l'Hérault pour les enfants. Épuisettes, seaux, exclamations et surprises garantis — une expérience vraie que les enfants raconteront longtemps.",
     lieu: {
       nom: "Rivière Hérault",
       adresse: 'Hérault, à proximité du domaine',
