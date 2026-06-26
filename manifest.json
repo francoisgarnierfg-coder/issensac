@@ -1,0 +1,24 @@
+{
+  "name": "Issensac",
+  "short_name": "Issensac",
+  "description": "Compagnon vacances — Hauts d'Issensac",
+  "start_url": "/issensac/",
+  "display": "standalone",
+  "background_color": "#F5F0E8",
+  "theme_color": "#1C3557",
+  "orientation": "portrait",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/issensac/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/issensac/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

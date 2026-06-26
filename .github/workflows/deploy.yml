@@ -31,6 +31,13 @@ jobs:
       - name: Build web (PWA)
         run: npx expo export --platform web
 
+      - name: Add PWA manifest and icons
+        run: |
+          cp assets/icon-180.png dist/icon-180.png
+          cp assets/icon.png dist/icon-512.png
+          cp manifest.json dist/manifest.json
+          sed -i 's|</head>|<link rel="manifest" href="/issensac/manifest.json"><link rel="apple-touch-icon" href="/issensac/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Issensac"></head>|' dist/index.html
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
