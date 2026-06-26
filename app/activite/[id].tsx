@@ -92,11 +92,21 @@ export default function EcranDetailActivite() {
         {/* Hero */}
         <View style={[styles.hero, { paddingTop: insets.top + Espace.lg }]}>
           {activite.photo ? (
-            <Image
-              source={activite.photo}
-              style={StyleSheet.absoluteFill}
-              resizeMode="cover"
-            />
+            <>
+              {activite.categorie === 'vin' && (
+                <LinearGradient
+                  colors={[couleurs.base, couleurs.milieu]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={StyleSheet.absoluteFill}
+                />
+              )}
+              <Image
+                source={activite.photo}
+                style={StyleSheet.absoluteFill}
+                resizeMode={activite.categorie === 'vin' ? 'contain' : 'cover'}
+              />
+            </>
           ) : (
             <LinearGradient
               colors={[couleurs.base, couleurs.milieu]}
