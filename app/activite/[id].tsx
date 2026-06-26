@@ -3,6 +3,7 @@ import {
   View,
   Text,
   ScrollView,
+  Image,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
@@ -88,13 +89,21 @@ export default function EcranDetailActivite() {
         contentContainerStyle={{ paddingBottom: insets.bottom + 100 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero dégradé */}
-        <LinearGradient
-          colors={[couleurs.base, couleurs.milieu]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={[styles.hero, { paddingTop: insets.top + Espace.lg }]}
-        >
+        {/* Hero avec photo de fond */}
+        <View style={[styles.hero, { paddingTop: insets.top + Espace.lg }]}>
+          {activite.photo ? (
+            <Image
+              source={activite.photo}
+              style={StyleSheet.absoluteFill}
+              resizeMode="cover"
+            />
+          ) : null}
+          <LinearGradient
+            colors={[couleurs.base + 'E8', couleurs.milieu + 'B0']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={StyleSheet.absoluteFill}
+          />
           {/* Bouton retour */}
           <View style={styles.headerHero}>
             <TouchableOpacity
@@ -128,7 +137,7 @@ export default function EcranDetailActivite() {
           <View style={styles.heroEmoji}>
             <Text style={styles.grandEmoji}>{activite.emoji}</Text>
           </View>
-        </LinearGradient>
+        </View>
 
         {/* Carte chevauchante */}
         <View style={styles.carteContenu}>
@@ -307,8 +316,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   hero: {
-    height: 200,
+    height: 240,
     paddingHorizontal: Espace.lg,
+    overflow: 'hidden',
   },
   headerHero: {
     flexDirection: 'row',

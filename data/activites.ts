@@ -1,10 +1,14 @@
 export type Categorie = 'eau' | 'culture' | 'nature' | 'domaine' | 'vin';
 export type Difficulte = 'facile' | 'modere' | 'difficile';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type PhotoSource = any;
+
 export interface ActiviteData {
   id: string;
   nom: string;
   emoji: string;
+  photo?: PhotoSource;
   categorie: Categorie;
   accroche: string;
   description: string;
@@ -47,6 +51,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'canoe-gorges',
     nom: 'Canoë dans les Gorges',
     emoji: '🛶',
+    photo: require('../assets/photos/canoe.jpg'),
     categorie: 'eau',
     accroche: 'Quatre kilomètres de bleu entre les falaises',
     description:
@@ -95,6 +100,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'grotte-demoiselles',
     nom: 'Grotte des Demoiselles',
     emoji: '🕳️',
+    photo: require('../assets/photos/grottes.jpg'),
     categorie: 'culture',
     accroche: '14°C de fraîcheur dans les entrailles du Causse',
     description:
@@ -141,6 +147,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'saint-guilhem',
     nom: 'Saint-Guilhem-le-Désert',
     emoji: '🏛️',
+    photo: require('../assets/photos/saint-guilhem.jpg'),
     categorie: 'culture',
     accroche: 'Le village médiéval que les enfants croient sorti d\'un livre',
     description:
@@ -185,6 +192,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'pont-du-diable',
     nom: 'Pont du Diable — Baignade',
     emoji: '🏊',
+    photo: require('../assets/photos/pont-du-diable.jpg'),
     categorie: 'eau',
     accroche: "L'Hérault cristallin sous un pont vieux de mille ans",
     description:
@@ -226,6 +234,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'cirque-navacelles',
     nom: 'Cirque de Navacelles',
     emoji: '🏔️',
+    photo: require('../assets/photos/cirque.jpg'),
     categorie: 'nature',
     accroche: '300 mètres de vertige classé UNESCO',
     description:
@@ -268,6 +277,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'pic-saint-loup',
     nom: 'Pic Saint-Loup',
     emoji: '⛰️',
+    photo: require('../assets/photos/pic-saint-loup.jpg'),
     categorie: 'nature',
     accroche: 'Le sommet qu\'on voit de partout — et depuis lequel on voit tout',
     description:
@@ -309,6 +319,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'accrodiable',
     nom: 'Accrobranche Accrodiable',
     emoji: '🌳',
+    photo: require('../assets/photos/accrobranche.jpg'),
     categorie: 'nature',
     accroche: 'Des arbres aux étoiles, dès 2 ans',
     description:
@@ -355,6 +366,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'daumas-gassac',
     nom: 'Mas Daumas Gassac',
     emoji: '🍷',
+    photo: 'https://picsum.photos/seed/vineyard-harvest-rows/800/400',
     categorie: 'vin',
     accroche: 'Le Lafite languedocien — et la dégustation est gratuite',
     description:
@@ -398,6 +410,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'cal-demoura',
     nom: 'Mas Cal Demoura',
     emoji: '🍷',
+    photo: 'https://picsum.photos/seed/wine-cellar-barrels/800/400',
     categorie: 'vin',
     accroche: 'Dix personnes maximum. Isabelle et Vincent, en personne.',
     description:
@@ -440,6 +453,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'domaine',
     nom: 'Les Hauts d\'Issensac',
     emoji: '🏡',
+    photo: 'https://picsum.photos/seed/provence-pool-valley/800/400',
     categorie: 'domaine',
     accroche: 'La piscine qui surplombe la vallée. Le reste peut attendre.',
     description:

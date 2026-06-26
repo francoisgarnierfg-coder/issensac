@@ -7,6 +7,7 @@ import {
   SectionList,
   StyleSheet,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import Animated, { FadeInDown, LinearTransition } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -107,14 +108,20 @@ export default function EcranActivites() {
       </View>
 
       {/* Barre de filtres */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.filtresScroll}
-        contentContainerStyle={styles.filtresContenu}
-      >
-        {FILTRES.map(renderFiltre)}
-      </ScrollView>
+      {Platform.OS === 'web' ? (
+        <View style={[styles.filtresScroll, styles.filtresWebConteneur]}>
+          {FILTRES.map(renderFiltre)}
+        </View>
+      ) : (
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.filtresScroll}
+          contentContainerStyle={styles.filtresContenu}
+        >
+          {FILTRES.map(renderFiltre)}
+        </ScrollView>
+      )}
 
       {/* Liste des activités */}
       {filtre === 'favoris' && activitesFiltrees.length === 0 ? (
@@ -200,6 +207,13 @@ const styles = StyleSheet.create({
     borderBottomColor: Couleurs.bordureClaire,
   },
   filtresContenu: {
+    paddingHorizontal: Espace.lg,
+    paddingVertical: Espace.sm,
+    gap: Espace.sm,
+  },
+  filtresWebConteneur: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     paddingHorizontal: Espace.lg,
     paddingVertical: Espace.sm,
     gap: Espace.sm,
