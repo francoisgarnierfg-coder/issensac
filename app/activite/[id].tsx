@@ -89,7 +89,7 @@ export default function EcranDetailActivite() {
         contentContainerStyle={{ paddingBottom: insets.bottom + 100 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero avec photo de fond */}
+        {/* Hero */}
         <View style={[styles.hero, { paddingTop: insets.top + Espace.lg }]}>
           {activite.photo ? (
             <Image
@@ -97,14 +97,14 @@ export default function EcranDetailActivite() {
               style={StyleSheet.absoluteFill}
               resizeMode="cover"
             />
-          ) : null}
-          <LinearGradient
-            colors={[couleurs.base + 'E8', couleurs.milieu + 'B0']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={StyleSheet.absoluteFill}
-          />
-          {/* Bouton retour */}
+          ) : (
+            <LinearGradient
+              colors={[couleurs.base, couleurs.milieu]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={StyleSheet.absoluteFill}
+            />
+          )}
           <View style={styles.headerHero}>
             <TouchableOpacity
               onPress={() => router.back()}
@@ -131,11 +131,6 @@ export default function EcranDetailActivite() {
                 </BlurView>
               </TouchableOpacity>
             </Animated.View>
-          </View>
-
-          {/* Emoji centré */}
-          <View style={styles.heroEmoji}>
-            <Text style={styles.grandEmoji}>{activite.emoji}</Text>
           </View>
         </View>
 
@@ -333,14 +328,6 @@ const styles = StyleSheet.create({
     paddingVertical: Espace.sm,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  heroEmoji: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  grandEmoji: {
-    fontSize: 56,
   },
   carteContenu: {
     backgroundColor: Couleurs.surface,
