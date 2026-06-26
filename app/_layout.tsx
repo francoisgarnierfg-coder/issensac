@@ -30,8 +30,6 @@ export default function LayoutRacine() {
     initMomentJournee();
   }, []);
 
-  if (!fontsChargees) return null;
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>

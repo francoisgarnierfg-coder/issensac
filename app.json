@@ -25,7 +25,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "bundler": "metro"
+      "bundler": "metro",
+      "name": "Issensac",
+      "shortName": "Issensac",
+      "description": "Compagnon vacances — Hauts d'Issensac",
+      "themeColor": "#1C3557",
+      "backgroundColor": "#F5F0E8",
+      "display": "standalone",
+      "orientation": "portrait",
+      "lang": "fr"
     },
     "plugins": [
       "expo-router",
