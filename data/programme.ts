@@ -88,15 +88,15 @@ export const PROGRAMME: JourData[] = [
   {
     numero: 4,
     date: 'Mardi 28 juillet',
-    theme: 'Détente & aventures',
-    emoji: '☀️',
+    theme: 'Écrevisses & aventures',
+    emoji: '🦞',
     humeur: 'detente',
     matin: {
-      activiteId: 'domaine',
-      titre: 'Plages privées & grasse matinée',
-      sousTitre: 'Rivière Buèges, construction de barrages, épuisettes, ricochets',
+      activiteId: 'peche-ecrevisses',
+      titre: 'Pêche aux écrevisses avec Louis',
+      sousTitre: 'Rivière Buèges — épuisettes, seaux, surprises garanties pour les enfants',
       estOptionnel: false,
-      note: 'Journée volontairement légère — chacun choisit son rythme.',
+      note: 'Organisé par Louis. Confirmer l\'heure avec lui la veille. Chaussures d\'eau obligatoires.',
     },
     apresmidi: {
       activiteId: 'accrodiable',

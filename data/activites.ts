@@ -450,6 +450,47 @@ export const ACTIVITES: ActiviteData[] = [
     misEnAvant: false,
   },
   {
+    id: 'peche-ecrevisses',
+    nom: 'Pêche aux écrevisses',
+    emoji: '🦞',
+    categorie: 'domaine',
+    accroche: '« J\'organiserai une activité pêche aux écrevisses 🦞 avec vos gosssesssss ! »',
+    description:
+      "Louis, le propriétaire du domaine, organise lui-même une séance de pêche aux écrevisses pour les enfants dans la rivière Buèges. Épuisettes, seaux, exclamations et surprises garantis — une expérience vraie que les enfants raconteront longtemps. Pas de préparation requise : Louis s'occupe de tout.",
+    lieu: {
+      nom: 'Rivière Buèges — Les Hauts d\'Issensac',
+      adresse: 'Causse-de-la-Selle, Hérault',
+      lat: 43.721,
+      lng: 3.622,
+      distanceDomaine: 'Sur place',
+    },
+    duree: { min: 60, max: 90, unite: 'min' },
+    ageMin: 3,
+    labelAge: 'Dès 3 ans',
+    difficulte: 'facile',
+    meilleureHeure: 'Matin — eaux fraîches et écrevisses actives',
+    tarif: {
+      gratuit: true,
+      note: 'Organisé par Louis, propriétaire du domaine. Matériel fourni.',
+    },
+    reservation: {
+      requise: false,
+      urgente: false,
+      telephone: '04 67 73 10 57',
+    },
+    conseils: [
+      'Chaussures d\'eau indispensables — galets et fond caillouteux',
+      'Prévoir des vêtements qui peuvent se mouiller — garanti !',
+      'Demander à Louis de confirmer l\'heure de rendez-vous la veille',
+    ],
+    avertissements: [
+      'Surveillance adulte obligatoire en rivière — même à faible profondeur',
+    ],
+    etiquettes: ['Organisé par Louis', 'Gratuit', 'Sur place'],
+    joursProgram: [4],
+    misEnAvant: false,
+  },
+  {
     id: 'domaine',
     nom: 'Les Hauts d\'Issensac',
     emoji: '🏡',
