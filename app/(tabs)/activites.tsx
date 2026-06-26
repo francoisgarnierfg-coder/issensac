@@ -134,6 +134,38 @@ export default function EcranActivites() {
             Appuie sur ❤️ pour garder tes activités préférées
           </Text>
         </View>
+      ) : Platform.OS === 'web' ? (
+        <ScrollView
+          style={styles.listeWeb}
+          contentContainerStyle={[
+            styles.listeContenu,
+            { paddingBottom: insets.bottom + 80 },
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
+          {sections ? sections.map((section) => (
+            <View key={section.title}>
+              <View style={styles.sectionHeader}>
+                <View style={[styles.bandeSectionHeader, { backgroundColor: Couleurs[section.title as Categorie].base }]} />
+                <Text style={[Typo.etiquette, { color: Couleurs[section.title as Categorie].base }]}>
+                  {LABELS_CAT[section.title as Categorie]}
+                </Text>
+                <View style={styles.spacer} />
+                <Text style={[Typo.legende, { color: Couleurs.subtil }]}>{section.data.length}</Text>
+              </View>
+              {section.data.map((item, i) => (
+                <View key={item.id} style={i > 0 ? { marginTop: Espace.sm } : undefined}>
+                  <CarteActivite activite={item} variante="liste" onPress={handlePress} />
+                </View>
+              ))}
+              <View style={{ height: Espace.lg }} />
+            </View>
+          )) : activitesFiltrees.map((item, i) => (
+            <View key={item.id} style={i > 0 ? { marginTop: Espace.sm } : undefined}>
+              <CarteActivite activite={item} variante="liste" onPress={handlePress} />
+            </View>
+          ))}
+        </ScrollView>
       ) : sections ? (
         <SectionList
           sections={sections}
@@ -226,6 +258,9 @@ const styles = StyleSheet.create({
   },
   piluleFiltreActive: {
     backgroundColor: Couleurs.marine,
+  },
+  listeWeb: {
+    flex: 1,
   },
   listeContenu: {
     padding: Espace.lg,
