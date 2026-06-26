@@ -67,6 +67,27 @@ export const PROGRAMME: JourData[] = [
   {
     numero: 3,
     date: 'Lundi 27 juillet',
+    theme: 'Vertige & UNESCO',
+    emoji: '🏔️',
+    humeur: 'aventure',
+    matin: {
+      activiteId: 'cirque-navacelles',
+      titre: 'Cirque de Navacelles',
+      sousTitre: 'Belvédère UNESCO, navette gratuite dans le cirque, baignade rivière Vis',
+      estOptionnel: false,
+      note: 'Départ domaine à 8h30 — belvédère bondé dès 10h30.',
+    },
+    apresmidi: {
+      activiteId: 'domaine',
+      titre: 'Retour & piscine',
+      sousTitre: 'Baignades libres, pétanque, récupération après la grande sortie',
+      estOptionnel: false,
+    },
+    reservationsRequises: [],
+  },
+  {
+    numero: 4,
+    date: 'Mardi 28 juillet',
     theme: 'Fraîcheur souterraine',
     emoji: '🕳️',
     humeur: 'culture',
@@ -86,9 +107,9 @@ export const PROGRAMME: JourData[] = [
     reservationsRequises: ['grotte-demoiselles'],
   },
   {
-    numero: 4,
-    date: 'Mardi 28 juillet',
-    theme: 'Écrevisses & aventures',
+    numero: 5,
+    date: 'Mercredi 29 juillet',
+    theme: 'Écrevisses & détente',
     emoji: '🦞',
     humeur: 'detente',
     matin: {
@@ -96,7 +117,7 @@ export const PROGRAMME: JourData[] = [
       titre: 'Pêche aux écrevisses avec Louis',
       sousTitre: 'Rivière Buèges — épuisettes, seaux, surprises garanties pour les enfants',
       estOptionnel: false,
-      note: 'Organisé par Louis. Confirmer l\'heure avec lui la veille. Chaussures d\'eau obligatoires.',
+      note: "Organisé par Louis. Confirmer l'heure avec lui la veille. Chaussures d'eau obligatoires.",
     },
     apresmidi: {
       activiteId: 'domaine',
@@ -108,9 +129,9 @@ export const PROGRAMME: JourData[] = [
     reservationsRequises: [],
   },
   {
-    numero: 5,
-    date: 'Mercredi 29 juillet',
-    theme: 'Médiéval & aventures',
+    numero: 6,
+    date: 'Jeudi 30 juillet',
+    theme: 'Médiéval, forêt & vignes',
     emoji: '🏰',
     humeur: 'culture',
     matin: {
@@ -127,27 +148,6 @@ export const PROGRAMME: JourData[] = [
       estOptionnel: true,
       note: 'Session 15h30–20h30 recommandée (moins chaud). Appeler le matin pour réserver.',
     },
-    reservationsRequises: ['saint-guilhem'],
-  },
-  {
-    numero: 6,
-    date: 'Jeudi 30 juillet',
-    theme: 'Panorama & vignes',
-    emoji: '🏔️',
-    humeur: 'aventure',
-    matin: {
-      activiteId: 'cirque-navacelles',
-      titre: 'Cirque de Navacelles',
-      sousTitre: 'Belvédère UNESCO, navette gratuite dans le cirque, baignade rivière Vis',
-      estOptionnel: false,
-      note: 'Départ domaine à 8h30 — belvédère bondé dès 10h30.',
-    },
-    apresmidi: {
-      activiteId: 'domaine',
-      titre: 'Retour & sieste',
-      sousTitre: 'Piscine, récupération, préparation soirée adultes',
-      estOptionnel: false,
-    },
     soiree: {
       activiteId: 'daumas-gassac',
       titre: 'Soirée adultes — Dégustation viticole',
@@ -155,7 +155,7 @@ export const PROGRAMME: JourData[] = [
       estOptionnel: false,
       note: 'Choisir entre Daumas Gassac (dégustation gratuite) ou Cal Demoura (confidentiel, 10 pers. max).',
     },
-    reservationsRequises: ['daumas-gassac', 'cal-demoura'],
+    reservationsRequises: ['saint-guilhem', 'daumas-gassac', 'cal-demoura'],
   },
   {
     numero: 7,

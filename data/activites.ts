@@ -366,7 +366,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'daumas-gassac',
     nom: 'Mas Daumas Gassac',
     emoji: '🍷',
-    photo: 'https://picsum.photos/seed/vineyard-harvest-rows/800/400',
+    photo: require('../assets/photos/Mas Daumas Bouteille.jpg'),
     categorie: 'vin',
     accroche: 'Le Lafite languedocien — et la dégustation est gratuite',
     description:
@@ -410,7 +410,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'cal-demoura',
     nom: 'Mas Cal Demoura',
     emoji: '🍷',
-    photo: 'https://picsum.photos/seed/wine-cellar-barrels/800/400',
+    photo: require('../assets/photos/Mas Cal Demoura.jpg'),
     categorie: 'vin',
     accroche: 'Dix personnes maximum. Isabelle et Vincent, en personne.',
     description:
@@ -453,6 +453,7 @@ export const ACTIVITES: ActiviteData[] = [
     id: 'peche-ecrevisses',
     nom: 'Pêche aux écrevisses',
     emoji: '🦞',
+    photo: require('../assets/photos/peche-ecrevisse-balance.webp'),
     categorie: 'domaine',
     accroche: '« J\'organiserai une activité pêche aux écrevisses 🦞 avec vos gosssesssss ! »',
     description:
