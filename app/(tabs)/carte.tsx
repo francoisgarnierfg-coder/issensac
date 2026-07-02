@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Dimensions,
   Alert,
+  Platform,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
@@ -54,6 +55,71 @@ interface ActiviteSelectionnee {
   telephone?: string;
 }
 
+const COULEURS_CAT: Record<string, string> = {
+  eau: '#0A5C96',
+  culture: '#5B3FA0',
+  nature: '#2A6B42',
+  domaine: '#8B4A00',
+  vin: '#8B1A3C',
+};
+
+function generateLeafletHTML(activites: typeof ACTIVITES): string {
+  const data = activites.map((a) => ({
+    n: a.nom,
+    e: a.emoji,
+    a: a.accroche,
+    d: a.lieu.distanceDomaine,
+    lat: a.lieu.lat,
+    lng: a.lieu.lng,
+    c: COULEURS_CAT[a.categorie] ?? '#1C3557',
+  }));
+
+  return `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{height:100%;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.pin{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.28)}
+.leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.leaflet-popup-content{margin:14px 16px}
+.pn{font-weight:700;font-size:15px;color:#1C3557;margin-bottom:4px}
+.pa{color:#666;font-size:13px;line-height:1.4;margin-bottom:5px}
+.pd{color:#999;font-size:12px;margin-bottom:12px}
+.pb{display:inline-block;padding:8px 16px;background:#1C3557;color:#fff;border-radius:9px;text-decoration:none;font-size:13px;font-weight:600}
+.pb:active{opacity:.8}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var D=${JSON.stringify(data)};
+var map=L.map('map',{zoomControl:true}).setView([43.74,3.58],11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a>',maxZoom:18
+}).addTo(map);
+D.forEach(function(a){
+  var el=document.createElement('div');
+  el.className='pin';el.style.background=a.c;el.textContent=a.e;
+  L.marker([a.lat,a.lng],{
+    icon:L.divIcon({html:el.outerHTML,iconSize:[44,44],iconAnchor:[22,22],popupAnchor:[0,-26],className:''})
+  }).addTo(map).bindPopup(
+    '<div class="pn">'+a.e+' '+a.n+'</div>'+
+    '<div class="pa">'+a.a+'</div>'+
+    '<div class="pd">📍 '+a.d+'</div>'+
+    '<a class="pb" href="https://www.google.com/maps/dir/?api=1&destination='+a.lat+','+a.lng+'" target="_blank">🗺️ Itinéraire</a>',
+    {maxWidth:280,minWidth:200}
+  );
+});
+</script>
+</body>
+</html>`;
+}
+
 const FILTRES_CARTE: { id: FiltreCategorie; emoji: string; label: string }[] = [
   { id: 'toutes', emoji: '✨', label: 'Toutes' },
   { id: 'eau', emoji: '💧', label: 'Eau' },
@@ -94,6 +160,27 @@ export default function EcranCarte() {
       telephone: activite.reservation.telephone,
     });
   }, []);
+
+  if (Platform.OS === 'web') {
+    const htmlContent = generateLeafletHTML(ACTIVITES);
+    return (
+      <View style={{ flex: 1, backgroundColor: Couleurs.fond }}>
+        <View style={[styles.headerWeb, { paddingTop: insets.top }]}>
+          <Text style={[Typo.titre, { color: Couleurs.encre }]}>Carte des activités</Text>
+          <Text style={[Typo.legende, { color: Couleurs.attenué }]}>
+            {ACTIVITES.length} lieux · tap pour l'itinéraire
+          </Text>
+        </View>
+        <View style={{ flex: 1 }}>
+          {(React as any).createElement('iframe', {
+            srcDoc: htmlContent,
+            style: { width: '100%', height: '100%', border: 'none', display: 'block' },
+            title: 'Carte des activités',
+          })}
+        </View>
+      </View>
+    );
+  }
 
   if (!MapView) {
     return (
@@ -371,6 +458,14 @@ const styles = StyleSheet.create({
     borderRadius: Rayon.md,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  headerWeb: {
+    paddingHorizontal: Espace.lg,
+    paddingVertical: Espace.lg,
+    gap: 2,
+    backgroundColor: Couleurs.surface,
+    borderBottomWidth: 1,
+    borderBottomColor: Couleurs.bordureClaire,
   },
   // Fallback
   fallback: {
