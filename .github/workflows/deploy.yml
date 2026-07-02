@@ -38,6 +38,32 @@ jobs:
           cp manifest.json dist/manifest.json
           sed -i 's|</head>|<link rel="manifest" href="/issensac/manifest.json"><link rel="apple-touch-icon" href="/issensac/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Issensac"></head>|' dist/index.html
 
+      - name: Set up service worker
+        run: |
+          SHA=$(git rev-parse --short HEAD)
+          sed "s/BUILD_VERSION/$SHA/" sw.js > dist/sw.js
+
+      - name: Inject SW auto-update into HTML
+        run: |
+          python3 - << 'EOF'
+          with open('dist/index.html', 'r') as f:
+              html = f.read()
+          script = (
+              '<script>'
+              'if("serviceWorker"in navigator){'
+              'var r=false;'
+              'navigator.serviceWorker.addEventListener("controllerchange",function(){'
+              'if(r)return;r=true;window.location.reload();'
+              '});'
+              'navigator.serviceWorker.register("/issensac/sw.js");'
+              '}'
+              '</script>'
+          )
+          html = html.replace('</body>', script + '</body>')
+          with open('dist/index.html', 'w') as f:
+              f.write(html)
+          EOF
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
