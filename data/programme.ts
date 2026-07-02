@@ -23,7 +23,7 @@ export interface JourData {
 export const PROGRAMME: JourData[] = [
   {
     numero: 1,
-    date: 'Samedi 25 juillet',
+    date: 'Samedi 25 juillet 2026',
     theme: 'Arrivée & premières heures',
     emoji: '🏠',
     humeur: 'convivial',
@@ -45,7 +45,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 2,
-    date: 'Dimanche 26 juillet',
+    date: 'Dimanche 26 juillet 2026',
     theme: 'Messe & gorges',
     emoji: '⛪',
     humeur: 'aventure',
@@ -66,7 +66,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 3,
-    date: 'Lundi 27 juillet',
+    date: 'Lundi 27 juillet 2026',
     theme: 'Vertige & UNESCO',
     emoji: '🏔️',
     humeur: 'aventure',
@@ -87,7 +87,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 4,
-    date: 'Mardi 28 juillet',
+    date: 'Mardi 28 juillet 2026',
     theme: 'Fraîcheur souterraine',
     emoji: '🕳️',
     humeur: 'culture',
@@ -108,7 +108,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 5,
-    date: 'Mercredi 29 juillet',
+    date: 'Mercredi 29 juillet 2026',
     theme: 'Écrevisses & détente',
     emoji: '🦞',
     humeur: 'detente',
@@ -130,7 +130,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 6,
-    date: 'Jeudi 30 juillet',
+    date: 'Jeudi 30 juillet 2026',
     theme: 'Médiéval, forêt & vignes',
     emoji: '🏰',
     humeur: 'culture',
@@ -159,7 +159,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 7,
-    date: 'Vendredi 31 juillet',
+    date: 'Vendredi 31 juillet 2026',
     theme: 'Dernier souffle & baignades',
     emoji: '🌊',
     humeur: 'detente',
@@ -180,7 +180,7 @@ export const PROGRAMME: JourData[] = [
   },
   {
     numero: 8,
-    date: 'Samedi 1er août',
+    date: 'Samedi 1er août 2026',
     theme: 'Brunch & au revoir',
     emoji: '👋',
     humeur: 'convivial',
