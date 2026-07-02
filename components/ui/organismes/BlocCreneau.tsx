@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
 import { CreneauData, Humeur } from '../../../data/programme';
+import { ouvrirItineraire } from '../../../utils/liens';
 import { ACTIVITES } from '../../../data/activites';
 import {
   Couleurs,
@@ -107,6 +108,24 @@ export const BlocCreneau = React.memo(function BlocCreneau({
               </Text>
             </View>
           )}
+
+          {creneau.boutonItineraire && (
+            <Pressable
+              onPress={(e) => {
+                e.stopPropagation?.();
+                ouvrirItineraire(
+                  creneau.boutonItineraire!.lat,
+                  creneau.boutonItineraire!.lng,
+                  creneau.boutonItineraire!.nom,
+                );
+              }}
+              style={styles.btnItineraireCreneau}
+              accessibilityRole="button"
+              accessibilityLabel="Itinéraire"
+            >
+              <Text style={[Typo.legende, { color: Couleurs.sarcelle }]}>🗺️ Itinéraire</Text>
+            </Pressable>
+          )}
         </View>
 
         {estInteractif && (
@@ -169,5 +188,14 @@ const styles = StyleSheet.create({
     borderRadius: Rayon.sm,
     padding: Espace.sm,
     marginTop: Espace.xs,
+  },
+  btnItineraireCreneau: {
+    alignSelf: 'flex-start',
+    marginTop: Espace.xs,
+    paddingHorizontal: Espace.md,
+    paddingVertical: Espace.xs,
+    borderRadius: Rayon.pilule,
+    borderWidth: 1,
+    borderColor: Couleurs.sarcelle,
   },
 });

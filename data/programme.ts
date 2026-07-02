@@ -6,6 +6,7 @@ export interface CreneauData {
   sousTitre: string;
   estOptionnel: boolean;
   note?: string;
+  boutonItineraire?: { lat: number; lng: number; nom: string };
 }
 
 export interface JourData {
@@ -54,6 +55,7 @@ export const PROGRAMME: JourData[] = [
       sousTitre: 'Saints Pierre et Paul — Ganges (6 km)',
       estOptionnel: false,
       note: 'Retour vers 11h30. Matinée libre avant la messe : piscine ou rivière Buèges.',
+      boutonItineraire: { lat: 43.934, lng: 3.703, nom: 'Église Saints Pierre et Paul — Ganges' },
     },
     apresmidi: {
       activiteId: 'canoe-gorges',
