@@ -521,7 +521,7 @@ export const ACTIVITES: ActiviteData[] = [
       telephone: '04 67 73 10 57',
     },
     conseils: [
-      'Tractotour avec Louis — gratuit, mémorable, demander dès l\'arrivée 🚜',
+      'Tractotour avec Louis Coulet — gratuit, mémorable, demander dès l\'arrivée 🚜',
       'Buèges 18–22°C : idéale pour les tout-petits — calme et peu profonde',
       'Ciel étoilé exceptionnel depuis la terrasse — pollution lumineuse quasi-nulle',
     ],

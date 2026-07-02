@@ -5,6 +5,7 @@ import {
   SectionList,
   StyleSheet,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CONTACTS, LABELS_GROUPES, GroupeContact } from '../../data/contacts';
@@ -15,6 +16,7 @@ import { CarteMétéo } from '../../components/ui/molecules/CarteMétéo';
 import { AnneauProgression } from '../../components/ui/molecules/AnneauProgression';
 import { Couleurs, Espace, Rayon, Typo, Ombre } from '../../constants/tokens';
 import { useAppStore } from '../../store/useAppStore';
+import { ouvrirItineraire } from '../../utils/liens';
 
 const METEO_DATA = [
   { emoji: '🌡️', label: 'Journée', valeur: '28–36°C', conseil: 'Sorties avant 10h ou après 17h' },
@@ -213,7 +215,7 @@ export default function EcranInfos() {
 
         <View style={[styles.carteTractotour]}>
           <Text style={[Typo.corpsMoyen, { color: Couleurs.or }]}>
-            🚜 Tractotour gratuit — à demander dès l'arrivée à Louis !
+            🚜 Tractotour gratuit — à demander dès l'arrivée à Louis Coulet !
           </Text>
           <Text style={[Typo.legende, { color: Couleurs.attenué, marginTop: 4 }]}>
             Balade dans le vignoble biologique — mémorable pour les enfants
@@ -223,6 +225,40 @@ export default function EcranInfos() {
         <CarteContact
           contact={CONTACTS.find((c) => c.id === 'louis')!}
         />
+      </View>
+
+      {/* SECTION : MESSE */}
+      <View style={styles.separateur} />
+      <SectionHeader titre="MESSE DOMINICALE" couleur="#7B5EA7" />
+      <View style={styles.bloc}>
+        <View style={styles.carteDomaine}>
+          <Text style={[Typo.soustitre, { color: Couleurs.encre }]}>
+            ⛪ Saints Pierre et Paul — Ganges
+          </Text>
+          <Text style={[Typo.corps, { color: Couleurs.encreDouce }]}>
+            Dimanche 10h30 · 6 km du domaine (~10 min)
+          </Text>
+          <View style={styles.infoDomaine}>
+            <Text style={[Typo.legende, { color: Couleurs.attenué }]}>Adresse</Text>
+            <Text style={[Typo.corpsMoyen, { color: Couleurs.encre }]}>
+              Place de la République, 34190 Ganges
+            </Text>
+          </View>
+          <View style={styles.infoDomaine}>
+            <Text style={[Typo.legende, { color: Couleurs.attenué }]}>Durée</Text>
+            <Text style={[Typo.corpsMoyen, { color: Couleurs.encre }]}>
+              ~1h · Retour vers 11h30
+            </Text>
+          </View>
+          <TouchableOpacity
+            onPress={() => ouvrirItineraire(43.934, 3.703, 'Église Saints Pierre et Paul — Ganges')}
+            style={styles.btnMesse}
+            accessibilityRole="button"
+            accessibilityLabel="Itinéraire vers l'église"
+          >
+            <Text style={[Typo.corpsMoyen, { color: '#FFF' }]}>🗺️ Itinéraire</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -308,6 +344,14 @@ const styles = StyleSheet.create({
     borderTopColor: Couleurs.bordureClaire,
     paddingTop: Espace.sm,
     gap: 2,
+  },
+  btnMesse: {
+    marginTop: Espace.sm,
+    height: 44,
+    borderRadius: Rayon.md,
+    backgroundColor: Couleurs.sarcelle,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   carteTractotour: {
     backgroundColor: Couleurs.orClair,

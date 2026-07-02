@@ -37,7 +37,7 @@ export const PROGRAMME: JourData[] = [
     apresmidi: {
       activiteId: 'domaine',
       titre: "Barbecue d'accueil + Tractotour",
-      sousTitre: 'Pétanque, premiers échanges, balade en tracteur avec Louis dans le vignoble',
+      sousTitre: 'Pétanque, premiers échanges, balade en tracteur avec Louis Coulet dans le vignoble',
       estOptionnel: false,
       note: "Demander le Tractotour dès l'arrivée — gratuit et mémorable pour les enfants !",
     },
@@ -151,7 +151,7 @@ export const PROGRAMME: JourData[] = [
     soiree: {
       activiteId: 'daumas-gassac',
       titre: 'Soirée adultes — Dégustation viticole',
-      sousTitre: 'Mas Daumas Gassac ou Cal Demoura — baby-sitters organisés via Louis',
+      sousTitre: 'Mas Daumas Gassac ou Cal Demoura — voir si on prend un baby-sitter',
       estOptionnel: false,
       note: 'Choisir entre Daumas Gassac (dégustation gratuite) ou Cal Demoura (confidentiel, 10 pers. max).',
     },

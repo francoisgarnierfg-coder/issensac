@@ -59,7 +59,7 @@ export const CONTACTS: ContactData[] = [
   // Domaine
   {
     id: 'louis',
-    nom: "Louis — Les Hauts d'Issensac",
+    nom: "Louis Coulet — Les Hauts d'Issensac",
     groupe: 'domaine',
     telephone: '04 67 73 10 57',
     email: 'o.issensac@gmail.com',
